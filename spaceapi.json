@@ -1,0 +1,34 @@
+{
+    "api": "0.13",
+    "space": "Brixel",
+    "logo": "http://wiki.brixel.be/images/Brixel_Logo.png",
+    "url": "http://brixel.be",
+    "location": {
+        "address": "Spalbeekstraat 34, 3510 Spalbeek, Belgium",
+        "lon": 5.2305834,
+        "lat": 50.9509978
+    },
+    "spacefed": {
+        "spacenet": false,
+        "spacesaml": false,
+        "spacephone": false
+    },
+    "contact": {
+        "twitter": "@hs_hasselt",
+        "email": "info@brixel.be",
+        "irc": "irc://irc.freenode.net/brixel",
+        "ml": "brixel-public@discuss.brixel.be"
+    },
+    "issue_report_channels": [
+        "email"
+    ],
+    "state": {
+        "open": null
+    },
+    "projects": [
+        "http://wiki.brixel.be/w/Category:Projects"
+    ],
+    "cache": {
+        "schedule": "h.01"
+    }
+}
