@@ -3,3 +3,8 @@
 C#/SpaceAPI.Tests/obj/
 *.pubxml
 C#/SpaceAPI/obj/
+C#/packages/
+C#/SpaceAPI/bin/
+C#/SpaceAPI.Tests/bin/
+C#/SpaceAPI.Data/obj/
+C#/SpaceAPI.Data/bin/
