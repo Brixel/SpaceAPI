@@ -52,6 +52,24 @@ namespace SpaceAPI.Controllers
                     return NotFound();
                 return Ok(stateLog);
             }
+        }
+
+        [Route("api/log/last")]
+        [HttpGet]
+        public IHttpActionResult GetLast(string field = "")
+        {
+            using (_context = new LogContext())
+            {
+                StateLog stateLog = _context.StateLogs.OrderByDescending(x => x.CreatedDate).FirstOrDefault();
+               
+                if (stateLog == null)
+                    return NotFound();
+                if (field == "open")
+                {
+                    return Ok(stateLog.Open);
+                }
+                return Ok(stateLog);
+            }
         } 
     }
 }
