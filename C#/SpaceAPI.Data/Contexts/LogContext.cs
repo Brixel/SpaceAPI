@@ -17,7 +17,7 @@ namespace SpaceAPI.Data.Contexts
     public class LogContext : DbContext
     {
 
-        public LogContext() : base("StateContext")
+        public LogContext() : base("SpaceAPIConnection")
         {
             
         }

@@ -12,7 +12,7 @@ namespace SpaceAPI.Tests.Controllers
     [TestFixture]
     public class StatusControllerTest
     {
-        [Test, Ignore]
+        [Test, Ignore("BECAUSE I CAN")]
         public void OpenTest()
         {
             // Arrange
@@ -29,7 +29,7 @@ namespace SpaceAPI.Tests.Controllers
             Assert.AreEqual(true, result.Content.State.Open);
         }
 
-        [Test, Ignore]
+        [Test, Ignore("BECAUSE I CAN")]
         public void CloseTest()
         {
             // Arrange

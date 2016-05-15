@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿
 using System.Web.Http;
 
 namespace SpaceAPI
@@ -9,15 +7,16 @@ namespace SpaceAPI
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
+            AddRoutes(config);
+        }
 
-            // Web API routes
+        private static void AddRoutes(HttpConfiguration config)
+        {
             config.MapHttpAttributeRoutes();
-
             config.Routes.MapHttpRoute(
- name: "API Default",
- routeTemplate: "api/{controller}/{action}/{id}",
- defaults: new { id = RouteParameter.Optional });
+             name: "API Default",
+             routeTemplate: "api/{controller}/{action}/{id}",
+             defaults: new { id = RouteParameter.Optional });
         }
     }
 }
