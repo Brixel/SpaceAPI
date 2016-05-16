@@ -1,4 +1,3 @@
-*.config
 *.ncrunchproject
 C#/SpaceAPI.Tests/obj/
 *.pubxml
