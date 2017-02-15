@@ -8,3 +8,6 @@ C#/SpaceAPI.Tests/bin/
 C#/SpaceAPI.Data/obj/
 C#/SpaceAPI.Data/bin/
 C#/.vs/
+*.user
+*.suo
+*.cache
