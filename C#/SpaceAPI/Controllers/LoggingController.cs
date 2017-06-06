@@ -23,7 +23,7 @@ namespace SpaceAPI.Controllers
 
         [Route("api/log")]
         [HttpGet]
-        public IHttpActionResult Get(string order = "desc")
+        public IHttpActionResult Get(string order = "desc", int limit = 10)
         {
             using (_context = new LogContext())
             {
@@ -31,10 +31,10 @@ namespace SpaceAPI.Controllers
                 switch (order)
                 {
                     case "asc":
-                       stateLogs = _context.StateLogs.ToList();
+                       stateLogs = _context.StateLogs.Take(limit).ToList();
                         break;
                     case "desc":
-                        stateLogs = _context.StateLogs.OrderByDescending(x => x.CreatedDate).ToList();
+                        stateLogs = _context.StateLogs.Take(limit).OrderByDescending(x => x.CreatedDate).ToList();
                         break;
                 }
                 
