@@ -8,6 +8,7 @@ namespace SpaceAPI
         public static void Register(HttpConfiguration config)
         {
             AddRoutes(config);
+            
         }
 
         private static void AddRoutes(HttpConfiguration config)

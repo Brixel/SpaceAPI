@@ -82,7 +82,7 @@ namespace SpaceAPI.Controllers
             return root;
         }
 
-
+        [Authorize]
         [HttpGet]
         public IHttpActionResult Open()
         {
@@ -102,6 +102,7 @@ namespace SpaceAPI.Controllers
             return Ok(root);
         }
 
+        [Authorize]
         [HttpGet]
         public IHttpActionResult Close()
         {
