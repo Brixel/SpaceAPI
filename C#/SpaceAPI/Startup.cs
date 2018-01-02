@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -19,7 +20,7 @@ namespace SpaceAPI
             app.UseIdentityServerBearerTokenAuthentication(new IdentityServerBearerTokenAuthenticationOptions()
             {
                 Authority = ConfigurationManager.AppSettings.Get("IdentityServiceURL"),
-                RequiredScopes = new[] {"api"}
+                RequiredScopes = new List<string>() { "spaceapi.read" }
             });
             app.UseWebApi(config);
 

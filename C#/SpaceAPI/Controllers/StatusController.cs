@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Newtonsoft.Json;
 using SpaceAPI.Data.Contexts;
 using SpaceAPI.Data.Models;
 using SpaceAPI.Data.Models.API;
@@ -97,8 +98,7 @@ namespace SpaceAPI.Controllers
                 var stateLogging = new StateLog() {Open = true};
                 context.StateLogs.Add(stateLogging);
                 context.SaveChanges();
-            } 
-
+            }
             return Ok(root);
         }
 
