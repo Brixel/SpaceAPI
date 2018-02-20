@@ -64,8 +64,8 @@ namespace SpaceAPI.Controllers
                     Lat = (float)50.9509978,
                     Lon = (float)5.2305834
                 },
-                Logo = "http://wiki.brixel.be/images/Brixel_Logo.png",
-                Projects = new[] { "http://wiki.brixel.be/w/Category:Projects" },
+                Logo = "https://wiki.brixel.be/images/Brixel_Logo.png",
+                Projects = new[] { "https://wiki.brixel.be/w/Category:Projects" },
                 Space = "Brixel",
                 State  = new State()
                 {
