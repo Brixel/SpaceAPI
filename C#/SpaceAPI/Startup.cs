@@ -20,7 +20,7 @@ namespace SpaceAPI
             app.UseIdentityServerBearerTokenAuthentication(new IdentityServerBearerTokenAuthenticationOptions()
             {
                 Authority = ConfigurationManager.AppSettings.Get("IdentityServiceURL"),
-                RequiredScopes = new List<string>() { "spaceapi.read" }
+                RequiredScopes = new List<string>() { ConfigurationManager.AppSettings["SpaceAPIScope"] }
             });
             app.UseWebApi(config);
 
