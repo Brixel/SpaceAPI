@@ -22,18 +22,10 @@ namespace SpaceAPI
             WebApiConfig.Register(config);
             app.UseIdentityServerBearerTokenAuthentication(new IdentityServerBearerTokenAuthenticationOptions()
             {
+                AuthenticationType =  "Bearer",
                 Authority = ConfigurationManager.AppSettings.Get("IdentityServiceURL"),
                 RequiredScopes = new List<string>() { ConfigurationManager.AppSettings["SpaceAPIScope"] },
-                
-            });
-            app.UseJwtBearerAuthentication(new JwtBearerAuthenticationOptions()
-            {
-                AuthenticationMode = AuthenticationMode.Active,
-                TokenValidationParameters = new TokenValidationParameters()
-                {
-                    ValidAudience = "https://brixelidentity.azurewebsites.net/resources",
-                    ValidIssuer = "https://brixelidentity.azurewebsites.net",
-                }
+                ValidationMode = ValidationMode.Local
             });
             app.UseWebApi(config);
 
