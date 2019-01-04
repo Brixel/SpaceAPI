@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -125,7 +126,14 @@ namespace SpaceAPI.Controllers
                 context.SaveChanges();
             }
 
-            await _serverLessRequestService.SpaceStateChanged(false);
+            try
+            {
+                await _serverLessRequestService.SpaceStateChanged(false);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
             return Ok(root);
         }
     }
