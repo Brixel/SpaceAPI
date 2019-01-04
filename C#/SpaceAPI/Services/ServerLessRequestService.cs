@@ -14,13 +14,14 @@ namespace SpaceAPI.Services
 {
     public class ServerLessRequestService : IServerLessRequestService
     {
-        private static HttpClient httpClient = new HttpClient();
+        private static HttpClient httpClient;
         
 
         public ServerLessRequestService()
         {
+            
             var baseAddress =ConfigurationManager.AppSettings.Get("FunctionBaseUri");
-            httpClient.BaseAddress = new Uri(baseAddress);
+            httpClient = new HttpClient {BaseAddress = new Uri(baseAddress)};
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 |
                                                    SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             ServicePointManager.ServerCertificateValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
