@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -20,6 +21,9 @@ namespace SpaceAPI.Services
         {
             var baseAddress =ConfigurationManager.AppSettings.Get("FunctionBaseUri");
             httpClient.BaseAddress = new Uri(baseAddress);
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 |
+                                                   SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            ServicePointManager.ServerCertificateValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
