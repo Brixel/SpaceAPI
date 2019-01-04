@@ -31,7 +31,14 @@ namespace SpaceAPI.Services
             };
             string textMessage = JsonConvert.SerializeObject(spaceStateChanged);
             var httpContent = new StringContent(textMessage, Encoding.UTF8, "application/json");
-            await httpClient.PostAsync(spaceStateChangedUri, httpContent);
+            try
+            {
+                await httpClient.PostAsync(spaceStateChangedUri, httpContent);
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
     }
 
