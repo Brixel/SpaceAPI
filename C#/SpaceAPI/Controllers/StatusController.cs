@@ -2,12 +2,14 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Newtonsoft.Json;
 using SpaceAPI.Data.Contexts;
 using SpaceAPI.Data.Models;
 using SpaceAPI.Data.Models.API;
 using SpaceAPI.Models.API;
+using SpaceAPI.Services;
 
 #endregion
 
@@ -16,6 +18,7 @@ namespace SpaceAPI.Controllers
     public class StatusController : ApiController
     {
         private LogContext _context;
+        private readonly IServerLessRequestService _serverLessRequestService;
 
         public StatusController(LogContext context)
         {
@@ -25,6 +28,7 @@ namespace SpaceAPI.Controllers
         public StatusController()
         {
             _context = new LogContext();
+            _serverLessRequestService = new ServerLessRequestService();
         }
 
         [Route("api/status")]
@@ -85,8 +89,9 @@ namespace SpaceAPI.Controllers
 
         [Authorize]
         [HttpGet]
-        public IHttpActionResult Open()
+        public async Task<IHttpActionResult> Open()
         {
+
             var root = GetRootObject();
             root.State = new State()
             {
@@ -99,12 +104,14 @@ namespace SpaceAPI.Controllers
                 context.StateLogs.Add(stateLogging);
                 context.SaveChanges();
             }
+
+            await _serverLessRequestService.SpaceStateChanged(true);
             return Ok(root);
         }
 
         [Authorize]
         [HttpGet]
-        public IHttpActionResult Close()
+        public async Task<IHttpActionResult> Close()
         {
             var root = GetRootObject();
             root.State = new State()
@@ -116,7 +123,9 @@ namespace SpaceAPI.Controllers
                 var stateLogging = new StateLog() { Open = false };
                 context.StateLogs.Add(stateLogging);
                 context.SaveChanges();
-            } 
+            }
+
+            await _serverLessRequestService.SpaceStateChanged(false);
             return Ok(root);
         }
     }

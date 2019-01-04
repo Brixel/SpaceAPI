@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Threading.Tasks;
+using System.Web.Http;
 using System.Web.Http.Results;
 using Moq;
 using NUnit.Framework;
@@ -13,13 +14,13 @@ namespace SpaceAPI.Tests.Controllers
     public class StatusControllerTest
     {
         [Test, Ignore("BECAUSE I CAN")]
-        public void OpenTest()
+        public async Task OpenTest()
         {
             // Arrange
             StatusController controller = new StatusController();
 
             // Act
-            IHttpActionResult response = controller.Open();
+            IHttpActionResult response = await controller.Open();
 
             var result = response as OkNegotiatedContentResult<Root>;
 
@@ -30,7 +31,7 @@ namespace SpaceAPI.Tests.Controllers
         }
 
         [Test, Ignore("BECAUSE I CAN")]
-        public void CloseTest()
+        public async Task CloseTest()
         {
             // Arrange
 
@@ -38,7 +39,7 @@ namespace SpaceAPI.Tests.Controllers
             contextMock.Setup(x => x.StateLogs.Add(It.IsAny<StateLog>()));
             // Act
             StatusController controller = new StatusController(contextMock.Object);
-            IHttpActionResult response = controller.Close();
+            IHttpActionResult response = await  controller.Close();
             var result = response as OkNegotiatedContentResult<Root>;
 
             // Assert
