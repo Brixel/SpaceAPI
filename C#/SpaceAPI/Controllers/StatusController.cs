@@ -132,7 +132,7 @@ namespace SpaceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ex.GetBaseException().Message);
             }
             return Ok(root);
         }
