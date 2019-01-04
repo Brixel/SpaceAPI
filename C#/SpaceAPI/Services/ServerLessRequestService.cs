@@ -29,10 +29,9 @@ namespace SpaceAPI.Services
             {
                 IsOpen = isOpen
             };
-            var uri = new Uri(spaceStateChangedUri);
             string textMessage = JsonConvert.SerializeObject(spaceStateChanged);
             var httpContent = new StringContent(textMessage, Encoding.UTF8, "application/json");
-            await httpClient.PostAsync(uri, httpContent);
+            await httpClient.PostAsync(spaceStateChangedUri, httpContent);
         }
     }
 
