@@ -13,12 +13,12 @@ namespace SpaceAPI.Services
 {
     public class ServerLessRequestService : IServerLessRequestService
     {
-        private static readonly HttpClient httpClient = new HttpClient();
+        private static HttpClient httpClient;
 
         public ServerLessRequestService()
         {
             var baseAddress =ConfigurationManager.AppSettings.Get("FunctionBaseUri");
-            httpClient.BaseAddress = new Uri(baseAddress);
+            httpClient = new HttpClient {BaseAddress = new Uri(baseAddress)};
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
