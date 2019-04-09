@@ -192,6 +192,7 @@
     <Compile Include="Controllers\LoggingController.cs" />
     <Compile Include="Controllers\SlackController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
+    <Compile Include="Controllers\Resolvers\LowerCaseContractResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ServerLessRequestService.cs" />
     <Compile Include="Startup.cs" />
