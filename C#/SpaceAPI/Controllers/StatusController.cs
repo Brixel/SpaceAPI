@@ -63,7 +63,7 @@ namespace SpaceAPI.Controllers
                     Ml = "brixel-public@discuss.brixel.be",
                     Twitter = "@hs_hasselt"
                 },
-                IssueReportChannels = reportChannels.ToArray(),
+                Issue_Report_Channels = reportChannels.ToArray(),
                 Location = new Location
                 {
                     Address = "Spalbeekstraat 34, 3510 Spalbeek, Belgium",
