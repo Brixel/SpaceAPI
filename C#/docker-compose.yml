@@ -1,0 +1,11 @@
+version: "3"
+services:
+   db:
+      image: "mcr.microsoft.com/mssql/server"
+      environment:
+         SA_PASSWORD: "spaceapi-2020-password" # This is just for dev-purposes, so it doesn't matter if it is in config
+         ACCEPT_EULA: "Y"
+      volumes:
+         - ./.dev/sql/data:/var/opt/mssql/data
+      ports:
+         - 1433:1433
