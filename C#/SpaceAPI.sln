@@ -1,13 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceAPI", "SpaceAPI\SpaceAPI.csproj", "{F51CD37D-FAE4-41F0-A862-7604271CFC61}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceAPI.Tests", "SpaceAPI.Tests\SpaceAPI.Tests.csproj", "{BCD83052-DC3A-4FD5-A14D-764D5AB11666}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceAPI.Data", "SpaceAPI.Data\SpaceAPI.Data.csproj", "{A0203D1C-7264-41BC-BE16-23219912B7F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceAPI.API", "SpaceAPI.API\SpaceAPI.API.csproj", "{B0A056BB-4625-44C4-B435-68D4997F4C36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceAPI.Model", "SpaceAPI.Model\SpaceAPI.Model.csproj", "{2D3E5C48-1224-478E-A115-E29CC0BA5486}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,8 +31,19 @@ Global
 		{A0203D1C-7264-41BC-BE16-23219912B7F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0203D1C-7264-41BC-BE16-23219912B7F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0203D1C-7264-41BC-BE16-23219912B7F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0A056BB-4625-44C4-B435-68D4997F4C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0A056BB-4625-44C4-B435-68D4997F4C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0A056BB-4625-44C4-B435-68D4997F4C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0A056BB-4625-44C4-B435-68D4997F4C36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D3E5C48-1224-478E-A115-E29CC0BA5486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D3E5C48-1224-478E-A115-E29CC0BA5486}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D3E5C48-1224-478E-A115-E29CC0BA5486}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D3E5C48-1224-478E-A115-E29CC0BA5486}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8DB3DB8D-8812-4414-A5EA-6C4E336408E1}
 	EndGlobalSection
 EndGlobal
