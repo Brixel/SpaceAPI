@@ -9,23 +9,18 @@ namespace SpaceAPI.Controllers
 {
     public class LoggingController : ApiController
     {
-        private LogContext _context;
+        private readonly LogContext _context;
 
         public LoggingController(LogContext context)
         {
             _context = context;
         }
 
-        public LoggingController()
-        {
-            _context = new LogContext();
-        }
-
         [Route("api/log")]
         [HttpGet]
         public IHttpActionResult Get(string order = "desc", int limit = 10)
         {
-            using (_context = new LogContext())
+            using (_context)
             {
                  List<StateLog> stateLogs = new List<StateLog>();
                 switch (order)
@@ -45,7 +40,7 @@ namespace SpaceAPI.Controllers
         [HttpGet]
         public IHttpActionResult GetById(int id)
         {
-            using (_context = new LogContext())
+            using (_context)
             {
                 StateLog stateLog = _context.StateLogs.SingleOrDefault(x=> x.Id == id);
                 if(stateLog == null)
@@ -58,7 +53,7 @@ namespace SpaceAPI.Controllers
         [HttpGet]
         public IHttpActionResult GetLast(string field = "")
         {
-            using (_context = new LogContext())
+            using (_context)
             {
                 StateLog stateLog = _context.StateLogs.OrderByDescending(x => x.CreatedDate).FirstOrDefault();
                

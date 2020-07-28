@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SpaceAPI.API.Services;
 using SpaceAPI.Data.Contexts;
+using SpaceAPI.Host.Services;
 
-namespace SpaceAPI.API
+namespace SpaceAPI.Host
 {
     public class Startup
     {
@@ -24,8 +24,8 @@ namespace SpaceAPI.API
         {
             services.AddDbContext<LogContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("SpaceAPIConnection")));
-            services.AddScoped<IServerLessRequestService, ServerLessRequestService>();
-            services.Configure<ServerLessOptions>(Configuration.GetSection("ServerLessOptions"));
+            //services.AddScoped<IServerLessRequestService, ServerLessRequestService>();
+            //services.Configure<ServerLessOptions>(Configuration.GetSection("ServerLessOptions"));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddControllers();
         }
@@ -38,6 +38,8 @@ namespace SpaceAPI.API
                 app.UseDeveloperExceptionPage();
             }
 
+            MigrateDatabase(app);
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -48,6 +50,13 @@ namespace SpaceAPI.API
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private static void MigrateDatabase(IApplicationBuilder app)
+        {
+            var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope();
+            var context = serviceScope.ServiceProvider.GetRequiredService<LogContext>();
+            context.Database.Migrate();
         }
     }
 

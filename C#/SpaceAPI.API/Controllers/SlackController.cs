@@ -1,9 +1,9 @@
-﻿using SpaceAPI.Data.Contexts;
-using SpaceAPI.Data.Models;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using SpaceAPI.Data.Contexts;
+using SpaceAPI.Data.Models;
 
-namespace SpaceAPI.Controllers
+namespace SpaceAPI.Host.Controllers
 {
     [Route("api/slack")]
     public class SlackController : ControllerBase
@@ -19,7 +19,7 @@ namespace SpaceAPI.Controllers
         public ActionResult GetStatus()
         {
             var outputString = "";
-            using (_context = new LogContext())
+            using (_context)
             {
                 StateLog stateLog = _context.StateLogs.OrderByDescending(x => x.CreatedDate).FirstOrDefault();
                 if (stateLog.Open)

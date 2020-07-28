@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Serialization;
 
-namespace SpaceAPI.Controllers.Resolvers
+namespace SpaceAPI.Host.Controllers.Resolvers
 {
     public class LowerCaseContractResolver : DefaultContractResolver
     {

@@ -6,28 +6,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
-using SpaceAPI.API.Services;
 using SpaceAPI.Data.Contexts;
 using SpaceAPI.Data.Models;
-using SpaceAPI.Data.Models.API;
 using SpaceAPI.Models.API;
 
 #endregion
 
-namespace SpaceAPI.Controllers
+namespace SpaceAPI.Host.Controllers
 {
     public class StatusController : ControllerBase
     {
         private readonly LogContext _context;
-        private readonly IServerLessRequestService _serverLessRequestService;
 
 
-        public StatusController(LogContext logContext, IServerLessRequestService serverLessRequestService)
+        public StatusController(LogContext logContext)
         {
             _context = logContext;
-            _serverLessRequestService = serverLessRequestService;
         }
 
         [Route("api/status")]
@@ -95,9 +89,9 @@ namespace SpaceAPI.Controllers
             };
 
             var stateLogging = new StateLog() { Open = true };
-            _context.StateLogs.Add(stateLogging);
+            await _context.StateLogs.AddAsync(stateLogging);
             _context.SaveChanges();
-            await _serverLessRequestService.SpaceStateChanged(true);
+            //await _serverLessRequestService.SpaceStateChanged(true);
             return Ok(root);
         }
 
@@ -111,12 +105,12 @@ namespace SpaceAPI.Controllers
                 Open = false
             };
             var stateLogging = new StateLog() { Open = false };
-            _context.StateLogs.Add(stateLogging);
+            await _context.StateLogs.AddAsync(stateLogging);
             _context.SaveChanges();
 
             try
             {
-                await _serverLessRequestService.SpaceStateChanged(false);
+                //await _serverLessRequestService.SpaceStateChanged(false);
             }
             catch (Exception ex)
             {

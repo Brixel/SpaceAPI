@@ -19,7 +19,6 @@ namespace SpaceAPI.Data.Contexts
 
         public LogContext() : base("SpaceAPIConnection")
         {
-            
         }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

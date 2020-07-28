@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceAPI.Tests", "SpaceAPI.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceAPI.Data", "SpaceAPI.Data\SpaceAPI.Data.csproj", "{A0203D1C-7264-41BC-BE16-23219912B7F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceAPI.API", "SpaceAPI.API\SpaceAPI.API.csproj", "{B0A056BB-4625-44C4-B435-68D4997F4C36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceAPI.Host", "SpaceAPI.API\SpaceAPI.Host.csproj", "{B0A056BB-4625-44C4-B435-68D4997F4C36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceAPI.Model", "SpaceAPI.Model\SpaceAPI.Model.csproj", "{2D3E5C48-1224-478E-A115-E29CC0BA5486}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceAPI.Model", "SpaceAPI.Model\SpaceAPI.Model.csproj", "{2D3E5C48-1224-478E-A115-E29CC0BA5486}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

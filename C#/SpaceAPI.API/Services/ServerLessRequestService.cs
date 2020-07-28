@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
-namespace SpaceAPI.API.Services
+namespace SpaceAPI.Host.Services
 {
     public class ServerLessRequestService : IServerLessRequestService
     {
-        private static HttpClient httpClient;
+        private static HttpClient _httpClient;
         private readonly ServerLessOptions _serverLessOptions;
 
 
@@ -20,11 +20,11 @@ namespace SpaceAPI.API.Services
             _serverLessOptions = options.Value ?? throw new ArgumentNullException(nameof(ServerLessOptions));
 
             var baseAddress = _serverLessOptions.FunctionBaseUri;
-            httpClient = new HttpClient {BaseAddress = new Uri(baseAddress)};
+            _httpClient = new HttpClient {BaseAddress = new Uri(baseAddress)};
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 |
                                                    SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             //ServicePointManager.ServerCertificateValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         public async Task SpaceStateChanged(bool isOpen)
@@ -36,7 +36,7 @@ namespace SpaceAPI.API.Services
             };
             string textMessage = JsonConvert.SerializeObject(spaceStateChanged);
             var httpContent = new StringContent(textMessage, Encoding.UTF8, "application/json");
-            await httpClient.PostAsync(spaceStateChangedUri, httpContent);
+            await _httpClient.PostAsync(spaceStateChangedUri, httpContent);
         }
     }
 

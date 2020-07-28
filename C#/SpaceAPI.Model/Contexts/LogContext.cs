@@ -23,11 +23,7 @@ namespace SpaceAPI.Data.Contexts
         {
             _httpContextAccessor = httpContextAccessor;
         }
-
-        public LogContext()
-        {
-        }
-
+        
         public override int SaveChanges()
         {
             foreach (var auditableEntity in ChangeTracker.Entries<IAuditableEntity>())
