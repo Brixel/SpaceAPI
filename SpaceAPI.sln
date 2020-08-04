@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceAPI.Tests", "SpaceAPI.Tests\SpaceAPI.Tests.csproj", "{BCD83052-DC3A-4FD5-A14D-764D5AB11666}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceAPI.Data", "SpaceAPI.Data\SpaceAPI.Data.csproj", "{A0203D1C-7264-41BC-BE16-23219912B7F3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceAPI.Host", "SpaceAPI.Host\SpaceAPI.Host.csproj", "{B0A056BB-4625-44C4-B435-68D4997F4C36}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceAPI.Model", "SpaceAPI.Model\SpaceAPI.Model.csproj", "{2D3E5C48-1224-478E-A115-E29CC0BA5486}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceAPI.Test", "SpaceAPI.Test\SpaceAPI.Test.csproj", "{1C7589C3-68EE-4BD1-A99B-9159A9CAD5F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BCD83052-DC3A-4FD5-A14D-764D5AB11666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BCD83052-DC3A-4FD5-A14D-764D5AB11666}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BCD83052-DC3A-4FD5-A14D-764D5AB11666}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BCD83052-DC3A-4FD5-A14D-764D5AB11666}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A0203D1C-7264-41BC-BE16-23219912B7F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A0203D1C-7264-41BC-BE16-23219912B7F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0203D1C-7264-41BC-BE16-23219912B7F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{2D3E5C48-1224-478E-A115-E29CC0BA5486}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D3E5C48-1224-478E-A115-E29CC0BA5486}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D3E5C48-1224-478E-A115-E29CC0BA5486}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C7589C3-68EE-4BD1-A99B-9159A9CAD5F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C7589C3-68EE-4BD1-A99B-9159A9CAD5F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C7589C3-68EE-4BD1-A99B-9159A9CAD5F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C7589C3-68EE-4BD1-A99B-9159A9CAD5F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -26,13 +26,13 @@ namespace SpaceAPI.Host.Controllers
 
         [Route("api/status")]
         [HttpGet]
-        public ActionResult Get()
+        public Root Get()
         {
-            Root root = GetRootObject();
+            var root = GetRootObject();
             var lastLog = _context.StateLogs.OrderByDescending(x => x.Id).FirstOrDefault();
-            bool open = lastLog != null && lastLog.Open;
+            var open = lastLog != null && lastLog.Open;
             root.State.Open = open;
-            return Ok(root);
+            return root;
         }
 
         private Root GetRootObject()
@@ -79,7 +79,7 @@ namespace SpaceAPI.Host.Controllers
 
         [Authorize]
         [HttpGet]
-        public async Task<ActionResult> Open()
+        public async Task<Root> Open()
         {
 
             var root = GetRootObject();
@@ -90,14 +90,14 @@ namespace SpaceAPI.Host.Controllers
 
             var stateLogging = new StateLog() { Open = true };
             await _context.StateLogs.AddAsync(stateLogging);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             //await _serverLessRequestService.SpaceStateChanged(true);
-            return Ok(root);
+            return root;
         }
 
         [Authorize]
         [HttpGet]
-        public async Task<ActionResult> Close()
+        public async Task<Root> Close()
         {
             var root = GetRootObject();
             root.State = new State()
@@ -106,17 +106,11 @@ namespace SpaceAPI.Host.Controllers
             };
             var stateLogging = new StateLog() { Open = false };
             await _context.StateLogs.AddAsync(stateLogging);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
-            try
-            {
-                //await _serverLessRequestService.SpaceStateChanged(false);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.GetBaseException().Message);
-            }
-            return Ok(root);
+            //await _serverLessRequestService.SpaceStateChanged(false);
+
+            return root;
         }
     }
 }

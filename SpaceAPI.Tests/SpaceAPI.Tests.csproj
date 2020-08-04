@@ -129,7 +129,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\StatusControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -141,6 +140,10 @@
     <ProjectReference Include="..\SpaceAPI.Data\SpaceAPI.Data.csproj">
       <Project>{A0203D1C-7264-41BC-BE16-23219912B7F3}</Project>
       <Name>SpaceAPI.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpaceAPI.Host\SpaceAPI.Host.csproj">
+      <Project>{b0a056bb-4625-44c4-b435-68d4997f4c36}</Project>
+      <Name>SpaceAPI.Host</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

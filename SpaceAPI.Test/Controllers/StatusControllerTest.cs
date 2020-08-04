@@ -1,14 +1,12 @@
 ﻿using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.Results;
+using FluentAssertions;
 using Moq;
 using NUnit.Framework;
-using SpaceAPI.Controllers;
 using SpaceAPI.Data.Contexts;
 using SpaceAPI.Data.Models;
-using SpaceAPI.Models.API;
+using SpaceAPI.Host.Controllers;
 
-namespace SpaceAPI.Tests.Controllers
+namespace SpaceAPI.Test.Controllers
 {
     [TestFixture]
     public class StatusControllerTest
@@ -17,17 +15,13 @@ namespace SpaceAPI.Tests.Controllers
         public async Task OpenTest()
         {
             // Arrange
-            StatusController controller = new StatusController();
+            StatusController controller = new StatusController(It.IsAny<LogContext>());
 
             // Act
-            IHttpActionResult response = await controller.Open();
-
-            var result = response as OkNegotiatedContentResult<Root>;
-
-            
+            var response = await controller.Open();
             // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(true, result.Content.State.Open);
+            response.Should().NotBeNull();
+            response.State.Open.Should().BeTrue();
         }
 
         [Test, Ignore("BECAUSE I CAN")]
@@ -39,12 +33,11 @@ namespace SpaceAPI.Tests.Controllers
             contextMock.Setup(x => x.StateLogs.Add(It.IsAny<StateLog>()));
             // Act
             StatusController controller = new StatusController(contextMock.Object);
-            IHttpActionResult response = await  controller.Close();
-            var result = response as OkNegotiatedContentResult<Root>;
+            var response = await  controller.Close();;
 
             // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(false, result.Content.State.Open);
+            response.Should().NotBeNull();
+            response.State.Open.Should().BeFalse();
         }
 
     }
