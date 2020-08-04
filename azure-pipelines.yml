@@ -19,3 +19,9 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
