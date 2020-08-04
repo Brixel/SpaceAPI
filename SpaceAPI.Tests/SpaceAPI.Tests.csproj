@@ -142,10 +142,6 @@
       <Project>{A0203D1C-7264-41BC-BE16-23219912B7F3}</Project>
       <Name>SpaceAPI.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SpaceAPI\SpaceAPI.csproj">
-      <Project>{F51CD37D-FAE4-41F0-A862-7604271CFC61}</Project>
-      <Name>SpaceAPI</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
