@@ -1,6 +1,6 @@
 using System;
-using System.Data.Entity;
-using System.Web;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using SpaceAPI.Data.Interfaces;
 using SpaceAPI.Data.Models;
 
@@ -16,16 +16,14 @@ namespace SpaceAPI.Data.Contexts
 
     public class LogContext : DbContext
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public LogContext() : base("SpaceAPIConnection")
+        public LogContext(IHttpContextAccessor httpContextAccessor, DbContextOptions<LogContext> options)
+            : base(options)
         {
+            _httpContextAccessor = httpContextAccessor;
         }
         
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
-
         public override int SaveChanges()
         {
             foreach (var auditableEntity in ChangeTracker.Entries<IAuditableEntity>())
@@ -35,7 +33,8 @@ namespace SpaceAPI.Data.Contexts
                 {
                     // implementation may change based on the useage scenario, this
                     // sample is for forma authentication.
-                    string currentUser = HttpContext.Current.User.Identity.Name != "" ? HttpContext.Current.User.Identity.Name: "anonymouse";
+                    string currentUser = _httpContextAccessor.HttpContext.User.Identity.Name != "" ?
+                        _httpContextAccessor.HttpContext.User.Identity.Name: "anonymouse";
 
                     // modify updated date and updated by column for 
                     // adds of updates.
