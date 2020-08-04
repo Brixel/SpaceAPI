@@ -28,6 +28,13 @@ namespace SpaceAPI.Host
             //services.Configure<ServerLessOptions>(Configuration.GetSection("ServerLessOptions"));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddControllers();
+
+            ConfigureVerticals(services);
+        }
+
+        private void ConfigureVerticals(IServiceCollection serviceCollection)
+        {
+            BrixelAPI.SpaceAPI.Bootstrapper.Configure(serviceCollection);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +44,7 @@ namespace SpaceAPI.Host
             {
                 app.UseDeveloperExceptionPage();
             }
+
 
             MigrateDatabase(app);
 
