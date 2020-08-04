@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SpaceAPI.Data\SpaceAPI.Data.csproj" />
     <ProjectReference Include="..\SpaceAPI.Model\SpaceAPI.Data.csproj" />
   </ItemGroup>
 
