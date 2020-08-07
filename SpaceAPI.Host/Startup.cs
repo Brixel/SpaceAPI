@@ -1,3 +1,4 @@
+using BrixelAPI.SpaceState;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -27,14 +28,22 @@ namespace SpaceAPI.Host
             //services.AddScoped<IServerLessRequestService, ServerLessRequestService>();
             //services.Configure<ServerLessOptions>(Configuration.GetSection("ServerLessOptions"));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddControllers();
+            services.AddControllers(options =>
+            {
+                options.RespectBrowserAcceptHeader = true;
+            });
 
-            ConfigureVerticals(services);
+            services.AddSwaggerGen(c =>
+            {
+                c.CustomSchemaIds(type => type.ToString());
+            });
+
+            ConfigureVerticals(services, Configuration);
         }
 
-        private void ConfigureVerticals(IServiceCollection serviceCollection)
+        private void ConfigureVerticals(IServiceCollection serviceCollection, IConfiguration configuration)
         {
-            BrixelAPI.SpaceAPI.Bootstrapper.Configure(serviceCollection);
+            Bootstrapper.Configure(serviceCollection, configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +52,12 @@ namespace SpaceAPI.Host
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                });
             }
 
 

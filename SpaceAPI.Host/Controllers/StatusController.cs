@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SpaceAPI.Data.Contexts;
 using SpaceAPI.Data.Models;
+using SpaceAPI.Data.Models.API;
 using SpaceAPI.Models.API;
 
 #endregion

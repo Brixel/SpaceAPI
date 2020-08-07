@@ -1,3 +1,5 @@
+using SpaceAPI.Data.Models.API;
+
 namespace SpaceAPI.Models.API
 {
     public class Root

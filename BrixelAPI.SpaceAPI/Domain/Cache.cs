@@ -1,4 +1,0 @@
-﻿namespace SpaceAPI.Models.API
-{
-    
-}

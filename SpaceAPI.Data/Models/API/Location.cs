@@ -1,4 +1,4 @@
-namespace SpaceAPI.Models.API
+namespace SpaceAPI.Data.Models.API
 {
     public class Location
     {
