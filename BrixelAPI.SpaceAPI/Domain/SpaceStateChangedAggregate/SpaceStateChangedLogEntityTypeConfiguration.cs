@@ -7,6 +7,9 @@ namespace BrixelAPI.SpaceState.Domain.SpaceStateChangedAggregate
     {
         public void Configure(EntityTypeBuilder<SpaceStateChangedLog> builder)
         {
+
+            builder.HasKey(x => x.Id);
+
             builder
                 .Property(x => x.IsOpen)
                 .IsRequired();
