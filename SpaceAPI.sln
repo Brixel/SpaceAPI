@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceAPI.Data", "SpaceAPI.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceAPI.Test", "SpaceAPI.Test\SpaceAPI.Test.csproj", "{1C7589C3-68EE-4BD1-A99B-9159A9CAD5F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrixelAPI.SpaceState", "BrixelAPI.SpaceAPI\BrixelAPI.SpaceState.csproj", "{CE83D549-7301-4289-9450-0F945F9BC21D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1C7589C3-68EE-4BD1-A99B-9159A9CAD5F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C7589C3-68EE-4BD1-A99B-9159A9CAD5F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C7589C3-68EE-4BD1-A99B-9159A9CAD5F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE83D549-7301-4289-9450-0F945F9BC21D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE83D549-7301-4289-9450-0F945F9BC21D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE83D549-7301-4289-9450-0F945F9BC21D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE83D549-7301-4289-9450-0F945F9BC21D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
