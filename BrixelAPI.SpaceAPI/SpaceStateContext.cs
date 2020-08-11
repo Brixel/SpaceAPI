@@ -9,7 +9,6 @@ namespace BrixelAPI.SpaceState
 
         public SpaceStateContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
         {
-            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

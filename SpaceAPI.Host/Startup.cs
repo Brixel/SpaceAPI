@@ -23,8 +23,8 @@ namespace SpaceAPI.Host
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<LogContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("SpaceAPIConnection")));
+            //services.AddDbContext<LogContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("SpaceAPIConnection")));
             //services.AddScoped<IServerLessRequestService, ServerLessRequestService>();
             //services.Configure<ServerLessOptions>(Configuration.GetSection("ServerLessOptions"));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -61,7 +61,7 @@ namespace SpaceAPI.Host
             }
 
 
-            MigrateDatabase(app);
+            //MigrateDatabase(app);
 
             app.UseHttpsRedirection();
 

@@ -6,7 +6,7 @@ namespace BrixelAPI.SpaceState.Features.GetFullStatus
 {
     [ApiController]
     [Route("api/brixel/spaceapi")]
-    public class GetFullStatusController
+    public class GetFullStatusController : ControllerBase
     {
         private readonly IMediator _mediator;
 

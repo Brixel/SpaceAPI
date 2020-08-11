@@ -1,7 +1,5 @@
-﻿using BrixelAPI.SpaceState.Domain;
-using BrixelAPI.SpaceState.Features.UpdateState;
+﻿using BrixelAPI.SpaceState.Features.UpdateState;
 using BrixelAPI.SpaceState.Infrastructure;
-using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -19,7 +17,10 @@ namespace BrixelAPI.SpaceState
             serviceCollection.AddScoped<ISpaceStateChangedLogRepository, SpaceStateChangedLogRepository>();
             serviceCollection.AddScoped<ISpaceStateUnitOfWork, SpaceStateUnitOfWork>();
             serviceCollection.AddScoped<IFileSystem, FileSystem>();
-            
+
+            serviceCollection.AddDbContext<SpaceStateContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("SpaceAPIConnection")));
+
         }
     }
 }
