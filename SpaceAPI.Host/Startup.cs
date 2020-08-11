@@ -58,10 +58,8 @@ namespace SpaceAPI.Host
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Brixel.SpaceAPI");
             });
-
-            //MigrateDatabase(app);
 
             app.UseHttpsRedirection();
 
@@ -73,13 +71,6 @@ namespace SpaceAPI.Host
             {
                 endpoints.MapControllers();
             });
-        }
-
-        private static void MigrateDatabase(IApplicationBuilder app)
-        {
-            var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope();
-            var context = serviceScope.ServiceProvider.GetRequiredService<LogContext>();
-            context.Database.Migrate();
         }
     }
 
