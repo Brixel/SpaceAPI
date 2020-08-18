@@ -1,0 +1,23 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: Npm@1
+  name: InstallAutoRest
+  displayName: Install autorest
+  inputs:
+    command: 'custom'
+    customCommand: 'install autorest'
+- task: CmdLine@2
+  name: RunAutoRest
+  displayName: Run autorest
+  inputs:
+    script: 'autorest autorest.yml --verbose'
