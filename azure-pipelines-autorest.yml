@@ -10,12 +10,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: UseNode@1
+  inputs:
 - task: Npm@1
   name: InstallAutoRest
   displayName: Install autorest
   inputs:
     command: 'custom'
-    customCommand: 'install -g autorest'
+    customCommand: 'install autorest'
 - task: CmdLine@2
   name: RunAutoRest
   displayName: Run autorest
