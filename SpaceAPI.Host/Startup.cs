@@ -2,12 +2,9 @@ using BrixelAPI.SpaceState;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SpaceAPI.Data.Contexts;
-using SpaceAPI.Host.Services;
 
 namespace SpaceAPI.Host
 {
@@ -35,8 +32,10 @@ namespace SpaceAPI.Host
 
             services.AddSwaggerGen(c =>
             {
-                c.CustomSchemaIds(type => type.ToString());
+                //c.CustomSchemaIds(type => type.ToString());
             });
+            services.AddMvcCore()
+                .AddApiExplorer();
 
             ConfigureVerticals(services, Configuration);
         }
