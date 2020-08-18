@@ -1,4 +1,4 @@
-input-file: C:\Users\Berend\Downloads\swagger.json
+input-file: https://status.brixel.space/swagger/v1/swagger.json
 csharp:
     namespace: Brixel.SpaceAPI.Client.SDK
     output-folder: Client
