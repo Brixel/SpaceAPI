@@ -2,6 +2,7 @@ using BrixelAPI.SpaceState;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -33,6 +34,8 @@ namespace SpaceAPI.Host
             services.AddSwaggerGen(options =>
             {
                 options.DocumentFilter<AdditionalParametersDocumentFilter>();
+                options.CustomOperationIds(
+                    d => (d.ActionDescriptor as ControllerActionDescriptor)?.ActionName);
             });
             services.AddMvcCore()
                 .AddApiExplorer();
