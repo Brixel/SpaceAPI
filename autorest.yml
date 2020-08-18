@@ -1,0 +1,5 @@
+input-file: C:\Users\Berend\Downloads\swagger.json
+csharp:
+    namespace: Brixel.SpaceAPI.Client.SDK
+    output-folder: Client
+    override-client-name: SpaceAPIClient
