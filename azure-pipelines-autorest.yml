@@ -15,7 +15,7 @@ steps:
   displayName: Install autorest
   inputs:
     command: 'custom'
-    customCommand: 'install autorest'
+    customCommand: 'install -g autorest'
 - task: CmdLine@2
   name: RunAutoRest
   displayName: Run autorest
