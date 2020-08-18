@@ -12,6 +12,7 @@ pool:
 steps:
 - task: UseNode@1
   inputs:
+    version: 10x
 - task: Npm@1
   name: InstallAutoRest
   displayName: Install autorest
