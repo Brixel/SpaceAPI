@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BrixelAPI.SpaceState.Features.UpdateState
 {
     [ApiController]
+    [Route("api/status")]
     [Route("api/brixel/spaceapi/state")]
     public class ToggleIsOpenStateController
     {

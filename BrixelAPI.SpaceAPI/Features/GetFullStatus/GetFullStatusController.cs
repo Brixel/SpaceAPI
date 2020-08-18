@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BrixelAPI.SpaceState.Features.GetFullStatus
 {
     [ApiController]
+    [Route("api/status")]
     [Route("api/brixel/spaceapi")]
     public class GetFullStatusController : ControllerBase
     {

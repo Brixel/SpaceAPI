@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +7,7 @@ using SpaceAPI.Data.Models;
 
 namespace SpaceAPI.Host.Controllers
 {
+    [Obsolete]
     public class LoggingController : ControllerBase
     {
         private readonly LogContext _context;
@@ -14,8 +16,7 @@ namespace SpaceAPI.Host.Controllers
         {
             _context = context;
         }
-
-        [Route("api/log")]
+            
         [HttpGet]
         public IReadOnlyList<StateLog> Get(string order = "desc", int limit = 10)
         {
@@ -33,14 +34,13 @@ namespace SpaceAPI.Host.Controllers
 
             return stateLogs;
         }
-        [Route("api/log/{id:int}")]
+
         [HttpGet]
         public StateLog GetById(int id)
         {
             return _context.StateLogs.SingleOrDefault(x => x.Id == id);
         }
 
-        [Route("api/log/last")]
         [HttpGet]
         public StateLog GetLast(string field = "")
         {
@@ -48,7 +48,6 @@ namespace SpaceAPI.Host.Controllers
             return stateLog;
         }
 
-        [Route("api/log/last/open")]
         [HttpGet]
         public bool IsOpen()
         {
