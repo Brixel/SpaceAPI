@@ -33,7 +33,7 @@ namespace BrixelAPI.SpaceState.Features.GetFullStatus
                 Ml = spaceState.Contact.Ml,
                 Twitter = spaceState.Contact.Twitter
             };
-            Issue_Report_Channels = spaceState.Issue_Report_Channels;
+            Issue_Report_Channels = spaceState.IssueReportChannels;
             State = new StateDTO()
             {
                 Open = spaceState.State.Open
@@ -57,7 +57,7 @@ namespace BrixelAPI.SpaceState.Features.GetFullStatus
         public List<string> Issue_Report_Channels { get; set; }
 
         public StateDTO State { get; set; }
-        public string[] Projects { get; set; }
+        public List<string> Projects { get; set; }
 
         public CacheDTO Cache { get; set; }
         public class CacheDTO
