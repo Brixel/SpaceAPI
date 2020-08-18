@@ -30,9 +30,9 @@ namespace SpaceAPI.Host
                 options.RespectBrowserAcceptHeader = true;
             });
 
-            services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(options =>
             {
-                //c.CustomSchemaIds(type => type.ToString());
+                options.DocumentFilter<AdditionalParametersDocumentFilter>();
             });
             services.AddMvcCore()
                 .AddApiExplorer();
