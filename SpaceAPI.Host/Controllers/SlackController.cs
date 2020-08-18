@@ -1,10 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using SpaceAPI.Data.Contexts;
 using SpaceAPI.Data.Models;
 
 namespace SpaceAPI.Host.Controllers
 {
+    [Obsolete]
     [Route("api/slack")]
     public class SlackController : ControllerBase
     {

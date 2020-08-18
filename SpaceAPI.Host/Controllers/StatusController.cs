@@ -15,6 +15,7 @@ using SpaceAPI.Models.API;
 
 namespace SpaceAPI.Host.Controllers
 {
+    [Obsolete]
     public class StatusController : ControllerBase
     {
         private readonly LogContext _context;
@@ -25,7 +26,6 @@ namespace SpaceAPI.Host.Controllers
             _context = logContext;
         }
 
-        [Route("api/status")]
         [HttpGet]
         public Root Get()
         {
