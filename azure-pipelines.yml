@@ -35,6 +35,7 @@ steps:
 - task: GitHubRelease@1
   inputs:
     repositoryName: '$(Build.Repository.Name)'
+    gitHubConnection: 'Brixel'
     action: 'create'
     target: '$(Build.SourceVersion)'
     tagSource: 'gitTag'
