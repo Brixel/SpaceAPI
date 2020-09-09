@@ -49,7 +49,7 @@ steps:
     repositoryName: '$(Build.Repository.Name)'
     gitHubConnection: 'Brixel.Github.Repo'
     action: 'create'
-    target: '$(Build.SourceVersion)'
+    target: '$(GitVersion.SemVer)'
     tagSource: 'gitTag'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
