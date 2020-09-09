@@ -18,8 +18,6 @@ steps:
 - task: UseGitVersion@5
   inputs:
     versionSpec: '5.2.x'
-    updateAssemblyInfo: true
-    updateAssemblyInfoFilename: '**/AssemblyInfo.cs'
     
 - task: DotNetCoreCLI@2
   displayName: Build
