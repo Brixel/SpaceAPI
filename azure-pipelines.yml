@@ -44,6 +44,10 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
+- script: |
+     git tag $(GitVersion.SemVer)
+     git push origin $(GitVersion.SemVer)
+  workingDirectory: $(Build.SourcesDirectory)
 - task: GitHubRelease@1
   inputs:
     repositoryName: '$(Build.Repository.Name)'
