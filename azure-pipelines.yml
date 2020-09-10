@@ -62,13 +62,3 @@ steps:
   workingDirectory: $(Build.SourcesDirectory)
   displayName: 'Add git tag $(GitVersion.FullSemVer)'
 
-- task: GitHubRelease@1
-  displayName: Create GitHub release
-  inputs:
-    repositoryName: '$(Build.Repository.Name)'
-    gitHubConnection: 'Brixel.Github.Repo'
-    action: 'create'
-    target: '$(GitVersion.FullSemVer)'
-    tagSource: 'gitTag'
-    changeLogCompareToRelease: 'lastFullRelease'
-    changeLogType: 'commitBased'
