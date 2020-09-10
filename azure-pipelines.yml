@@ -37,27 +37,33 @@ steps:
     versionEnvVar: 'GitVersion.FullSemVer'
 
 - task: DotNetCoreCLI@2
+  displayName: Test
   inputs:
     command: 'test'
     
 - task: DotNetCoreCLI@2
+  displayName: Publish project to $(Build.ArtifactStagingDirectory)
   inputs:
-    command: 'publish'
+    command: publish
     publishWebProjects: true
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
+  displayName: 'Move to artifacts'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
+    PathtoPublish: $(Build.ArtifactStagingDirectory)
+    ArtifactName: drop
     publishLocation: 'Container'
 
 - script: |
      git tag $(GitVersion.FullSemVer)
      git push origin $(GitVersion.FullSemVer)
   workingDirectory: $(Build.SourcesDirectory)
+  displayName: 'Add git tag $(GitVersion.FullSemVer)'
+
 - task: GitHubRelease@1
+  displayName: Create GitHub release
   inputs:
     repositoryName: '$(Build.Repository.Name)'
     gitHubConnection: 'Brixel.Github.Repo'
