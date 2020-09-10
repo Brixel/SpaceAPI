@@ -1,7 +1,7 @@
-﻿using System.Linq;
+﻿using System.ComponentModel;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web.Helpers;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,7 +21,7 @@ namespace BrixelAPI.SpaceState.Features.GetStateChangedLogs
         {
             var sortDirection = GetSortingDirection(request.Order);
             var spaceStateChangedLogs =
-                sortDirection == SortDirection.Ascending
+                sortDirection == ListSortDirection.Ascending
                     ? _context.SpaceStateChangedLog.OrderBy(x => x.ChangedAtDateTime)
                     : _context.SpaceStateChangedLog.OrderByDescending(x => x.ChangedAtDateTime);
 
@@ -38,17 +38,17 @@ namespace BrixelAPI.SpaceState.Features.GetStateChangedLogs
 
         }
 
-        private SortDirection GetSortingDirection(string requestOrder)
+        private ListSortDirection GetSortingDirection(string requestOrder)
         {
             switch (requestOrder)
             {
                 case "asc":
                 case "ascending":
-                    return SortDirection.Ascending;
+                    return ListSortDirection.Ascending;
                 case "desc":
                 case "descending":
                 default:
-                    return SortDirection.Descending;
+                    return ListSortDirection.Descending;
             }
         }
     }

@@ -1,4 +1,5 @@
 using BrixelAPI.SpaceState;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -38,7 +39,8 @@ namespace SpaceAPI.Host
                     d => (d.ActionDescriptor as ControllerActionDescriptor)?.ActionName);
             });
             services.AddMvcCore()
-                .AddApiExplorer();
+                .AddApiExplorer()
+                .AddFluentValidation();
 
             ConfigureVerticals(services, Configuration);
         }
