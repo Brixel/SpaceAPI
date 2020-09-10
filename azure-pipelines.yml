@@ -17,13 +17,16 @@ steps:
 - checkout: self
   persistCredentials: true
 - task: UseDotNet@2
+  displayName: 'Use .NET Core 3.1.x SDK'
   inputs:
     packageType: 'sdk'
     version: '3.1.x'
-- task: UseGitVersion@5
+- task: gitversion/setup@0
+  displayName: 'Setup GitVersion'
   inputs:
     versionSpec: '5.2.x'
-    
+- task: gitversion/execute@0
+  displayName: Use GitVersion
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
