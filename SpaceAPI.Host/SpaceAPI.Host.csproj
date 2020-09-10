@@ -23,7 +23,6 @@
   <ItemGroup>
     <ProjectReference Include="..\BrixelAPI.SpaceAPI\BrixelAPI.SpaceState.csproj" />
     <ProjectReference Include="..\SpaceAPI.Data\SpaceAPI.Data.csproj" />
-    <ProjectReference Include="..\SpaceAPI.Model\SpaceAPI.Data.csproj" />
   </ItemGroup>
 
 </Project>
