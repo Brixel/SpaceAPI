@@ -11,7 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  GitVersion.SemVer: ''
+  GitVersion.FullSemVer: ''
 
 steps:
 - checkout: self
@@ -27,7 +27,7 @@ steps:
     command: build
     configuration: '$(buildConfiguration)'
     versioningScheme: byEnvVar
-    versionEnvVar: 'GitVersion.SemVer'
+    versionEnvVar: 'GitVersion.FullSemVer'
 
 - task: DotNetCoreCLI@2
   inputs:
@@ -47,15 +47,15 @@ steps:
     publishLocation: 'Container'
 
 - script: |
-     git tag $(GitVersion.SemVer)
-     git push origin $(GitVersion.SemVer)
+     git tag $(GitVersion.FullSemVer)
+     git push origin $(GitVersion.FullSemVer)
   workingDirectory: $(Build.SourcesDirectory)
 - task: GitHubRelease@1
   inputs:
     repositoryName: '$(Build.Repository.Name)'
     gitHubConnection: 'Brixel.Github.Repo'
     action: 'create'
-    target: '$(GitVersion.SemVer)'
+    target: '$(GitVersion.FullSemVer)'
     tagSource: 'gitTag'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
