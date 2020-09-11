@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using System.Reflection;
 using BrixelAPI.SpaceState;
@@ -25,7 +26,7 @@ namespace SpaceAPI.Host
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var version = Assembly.GetExecutingAssembly().GetName().Version;
+            var version = GetVersion();
 
             //services.AddDbContext<LogContext>(options =>
             //    options.UseSqlServer(Configuration.GetConnectionString("SpaceAPIConnection")));
@@ -54,6 +55,11 @@ namespace SpaceAPI.Host
             ConfigureVerticals(services, Configuration);
         }
 
+        private static Version GetVersion()
+        {
+            return Assembly.GetExecutingAssembly().GetName().Version;
+        }
+
         private void ConfigureVerticals(IServiceCollection serviceCollection, IConfiguration configuration)
         {
             Bootstrapper.Configure(serviceCollection, configuration);
@@ -71,7 +77,7 @@ namespace SpaceAPI.Host
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Brixel.SpaceAPI");
+                c.SwaggerEndpoint($"/swagger/{GetVersion()}/swagger.json", "Brixel.SpaceAPI");
             });
 
             app.UseHttpsRedirection();
