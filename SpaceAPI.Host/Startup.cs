@@ -55,9 +55,10 @@ namespace SpaceAPI.Host
             ConfigureVerticals(services, Configuration);
         }
 
-        private static Version GetVersion()
+        private static string GetVersion()
         {
-            return Assembly.GetExecutingAssembly().GetName().Version;
+            return Assembly.GetEntryAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
+
         }
 
         private void ConfigureVerticals(IServiceCollection serviceCollection, IConfiguration configuration)
