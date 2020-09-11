@@ -30,7 +30,7 @@ steps:
   displayName: Use GitVersion
   inputs:
     updateAssemblyInfo: true
-    updateAssemblyInfoFilename: 'SpaceAPI.Host/AssemblyInfo.cs'
+    updateAssemblyInfoFilename: '$(Build.WorkingDirectory)/SpaceAPI.Host/AssemblyInfo.cs'
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
