@@ -27,6 +27,8 @@ steps:
     versionSpec: '5.2.x'
 - task: gitversion/execute@0
   displayName: Use GitVersion
+  inputs:
+    updateAssemblyInfo: true
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
