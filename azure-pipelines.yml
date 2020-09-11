@@ -28,8 +28,8 @@ steps:
     versionSpec: '5.2.x'
 - task: gitversion/execute@0
   displayName: Use GitVersion
-  inputs:
-    updateAssemblyInfo: true
+  #inputs:
+    #updateAssemblyInfo: true
    # updateAssemblyInfoFilename: '$(Build.SourcesDirectory)/SpaceAPI.Host/AssemblyInfo.cs'
 
 - task: DotNetCoreCLI@2
