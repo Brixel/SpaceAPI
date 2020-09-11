@@ -31,7 +31,14 @@ steps:
   inputs:
     updateAssemblyInfo: true
    # updateAssemblyInfoFilename: '$(Build.SourcesDirectory)/SpaceAPI.Host/AssemblyInfo.cs'
-     
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    feedsToUse: 'select'
+    vstsFeed: 'ae104835-07d5-4d1e-a39c-14132e2e8544'
+
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
