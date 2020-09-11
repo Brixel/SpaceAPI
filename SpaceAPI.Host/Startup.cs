@@ -1,3 +1,5 @@
+using System.Diagnostics;
+using System.Reflection;
 using BrixelAPI.SpaceState;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
@@ -7,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace SpaceAPI.Host
 {
@@ -22,6 +25,8 @@ namespace SpaceAPI.Host
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var version = Assembly.GetExecutingAssembly().GetName().Version;
+
             //services.AddDbContext<LogContext>(options =>
             //    options.UseSqlServer(Configuration.GetConnectionString("SpaceAPIConnection")));
             //services.AddScoped<IServerLessRequestService, ServerLessRequestService>();
@@ -34,6 +39,10 @@ namespace SpaceAPI.Host
 
             services.AddSwaggerGen(options =>
             {
+                options.SwaggerDoc($"v{version}", new OpenApiInfo()
+                {
+                    Version = version.ToString()
+                });
                 options.DocumentFilter<AdditionalParametersDocumentFilter>();
                 options.CustomOperationIds(
                     d => (d.ActionDescriptor as ControllerActionDescriptor)?.ActionName);
