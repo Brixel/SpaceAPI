@@ -28,17 +28,23 @@ steps:
     versionSpec: '5.2.x'
 - task: gitversion/execute@0
   displayName: Use GitVersion
+  #inputs:
+    #updateAssemblyInfo: true
+   # updateAssemblyInfoFilename: '$(Build.SourcesDirectory)/SpaceAPI.Host/AssemblyInfo.cs'
+
+- task: DotNetCoreCLI@2
   inputs:
-    updateAssemblyInfo: true
-    updateAssemblyInfoFilename: '**/AssemblyInfo.cs'
+    command: 'restore'
+    projects: '**/*.csproj'
+    feedsToUse: 'select'
+    vstsFeed: 'ae104835-07d5-4d1e-a39c-14132e2e8544'
+
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
-    command: build
+    command: 'build'
     projects: '**/*.csproj'
-    configuration: '$(buildConfiguration)'
-    versioningScheme: byEnvVar
-    versionEnvVar: 'GitVersion.FullSemVer'
+    arguments: '/p:Version=$(GitVersion.FullSemver)'
 
 - task: DotNetCoreCLI@2
   displayName: Test
