@@ -21,6 +21,7 @@ steps:
   inputs:
     packageType: 'sdk'
     version: '3.1.x'
+    
 - task: gitversion/setup@0
   displayName: 'Setup GitVersion'
   inputs:
@@ -29,6 +30,7 @@ steps:
   displayName: Use GitVersion
   inputs:
     updateAssemblyInfo: true
+    updateAssemblyInfoFilename: '**/AssemblyInfo.cs'
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
