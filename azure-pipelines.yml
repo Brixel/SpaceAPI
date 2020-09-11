@@ -42,11 +42,9 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
-    command: build
+    command: 'build'
     projects: '**/*.csproj'
-    configuration: '$(buildConfiguration)'
-    versioningScheme: byEnvVar
-    versionEnvVar: 'GitVersion.FullSemVer'
+    arguments: '/p:Version=$(GitVersion.FullSemver)'
 
 - task: DotNetCoreCLI@2
   displayName: Test
