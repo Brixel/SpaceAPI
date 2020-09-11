@@ -77,7 +77,7 @@ namespace SpaceAPI.Host
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint($"/swagger/{GetVersion()}/swagger.json", "Brixel.SpaceAPI");
+                c.SwaggerEndpoint($"/swagger/v{GetVersion()}/swagger.json", "Brixel.SpaceAPI");
             });
 
             app.UseHttpsRedirection();
