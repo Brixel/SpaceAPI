@@ -52,7 +52,7 @@ steps:
   inputs:
     command: publish
     publishWebProjects: true
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory) /property:Version=$(fullSemVer)'
     zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
