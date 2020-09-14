@@ -40,7 +40,7 @@ steps:
   inputs:
     command: 'build'
     projects: '**/*.csproj'
-    arguments: '/property:Version=$(fullSemVer)'
+    arguments: '/property:InformationalVersion=$(fullSemVer)'
 
 - task: DotNetCoreCLI@2
   displayName: Test
