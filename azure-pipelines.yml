@@ -25,12 +25,9 @@ steps:
 - task: gitversion/setup@0
   displayName: 'Setup GitVersion'
   inputs:
-    versionSpec: '5.2.x'
+    versionSpec: '5.x'
 - task: gitversion/execute@0
   displayName: Use GitVersion
-  #inputs:
-    #updateAssemblyInfo: true
-   # updateAssemblyInfoFilename: '$(Build.SourcesDirectory)/SpaceAPI.Host/AssemblyInfo.cs'
 
 - task: DotNetCoreCLI@2
   inputs:
@@ -44,7 +41,7 @@ steps:
   inputs:
     command: 'build'
     projects: '**/*.csproj'
-    arguments: '/p:Version=$(GitVersion.SemVer)'
+    arguments: '/property:Version=$(GitVersion.FullSemver)'
 
 - task: DotNetCoreCLI@2
   displayName: Test
