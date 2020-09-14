@@ -40,7 +40,7 @@ steps:
   inputs:
     command: 'build'
     projects: '**/*.csproj'
-    arguments: '/property:InformationalVersion=$(fullSemVer)'
+    arguments: '/property:InformationalVersion=$(semver)'
 
 - task: DotNetCoreCLI@2
   displayName: Test
@@ -52,7 +52,7 @@ steps:
   inputs:
     command: publish
     publishWebProjects: true
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory) /property:InformationalVersion=$(fullSemVer)'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory) /property:InformationalVersion=$(semver)'
     zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
