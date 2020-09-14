@@ -11,7 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  GitVersion.FullSemVer: ''
+  GitVersion.SemVer: ''
 
 steps:
 - checkout: self
@@ -44,7 +44,7 @@ steps:
   inputs:
     command: 'build'
     projects: '**/*.csproj'
-    arguments: '/p:Version=$(GitVersion.FullSemver)'
+    arguments: '/p:Version=$(GitVersion.SemVer)'
 
 - task: DotNetCoreCLI@2
   displayName: Test
