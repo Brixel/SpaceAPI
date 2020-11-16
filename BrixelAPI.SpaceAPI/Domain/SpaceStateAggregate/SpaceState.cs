@@ -32,11 +32,12 @@ namespace BrixelAPI.SpaceState.Domain.SpaceStateAggregate
         }
 
         [JsonConstructor]
-        private SpaceState(string api, string logo, string url, Location location, Spacefed spacefed, Contact contact, List<string> issueReportChannels, State state, List<string> projects, Cache cache)
+        private SpaceState(string api, string space, string logo, string url, Location location, Spacefed spacefed, Contact contact, List<string> issueReportChannels, State state, List<string> projects, Cache cache)
         {
             Api = api;
             Logo = logo;
             Url = url;
+            Space = space;
             Location = location;
             Spacefed = spacefed;
             Contact = contact;
@@ -74,6 +75,10 @@ namespace BrixelAPI.SpaceState.Domain.SpaceStateAggregate
                     Twitter = "@hs_hasselt"
                 },
                 IssueReportChannels = new List<string> { "email" },
+                Projects = new List<string>()
+                {
+                    "https://www.brixel.be/projecten/"
+                },
                 State = new State()
                 {
                     Open = false,
