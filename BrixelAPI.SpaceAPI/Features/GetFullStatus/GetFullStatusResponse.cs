@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 
 namespace BrixelAPI.SpaceState.Features.GetFullStatus
@@ -34,7 +35,7 @@ namespace BrixelAPI.SpaceState.Features.GetFullStatus
                 Ml = spaceState.Contact.Ml,
                 Twitter = spaceState.Contact.Twitter
             };
-            Issue_report_channels = spaceState.IssueReportChannels;
+            IssueReportChannels = spaceState.IssueReportChannels;
             State = new StateDTO()
             {
                 Open = spaceState.State.Open
@@ -55,7 +56,8 @@ namespace BrixelAPI.SpaceState.Features.GetFullStatus
 
         public ContactDTO Contact { get; set; }
 
-        public List<string> Issue_report_channels { get; set; }
+        [JsonPropertyName("issue_report_channels")]
+        public List<string> IssueReportChannels { get; set; }
 
         public StateDTO State { get; set; }
         public List<string> Projects { get; set; }
