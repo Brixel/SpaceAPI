@@ -40,7 +40,7 @@ namespace SpaceAPI.Host
 
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc($"v{version}", new OpenApiInfo()
+                options.SwaggerDoc($"v1", new OpenApiInfo()
                 {
                     Version = version.ToString()
                 });
