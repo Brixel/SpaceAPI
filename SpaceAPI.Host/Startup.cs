@@ -42,7 +42,9 @@ namespace SpaceAPI.Host
             {
                 options.SwaggerDoc($"v1", new OpenApiInfo()
                 {
-                    Version = version.ToString()
+                    Version = version,
+                    Title = "Brixel.SpaceAPI",
+                    Description = "SpaceAPI of Brixel"
                 });
                 options.DocumentFilter<AdditionalParametersDocumentFilter>();
                 options.CustomOperationIds(
