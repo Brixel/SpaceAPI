@@ -24,7 +24,8 @@ steps:
 - task: gitversion/setup@0
   displayName: 'Setup GitVersion'
   inputs:
-    versionSpec: '5.2.x'
+    versionSpec: '5.x'
+    
 - task: gitversion/execute@0
   displayName: Use GitVersion
 
