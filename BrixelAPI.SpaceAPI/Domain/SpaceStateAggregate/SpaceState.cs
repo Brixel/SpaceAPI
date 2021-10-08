@@ -53,7 +53,7 @@ namespace BrixelAPI.SpaceState.Domain.SpaceStateAggregate
             {
                 Api = "0.13",
                 Space = "Brixel",
-                Logo = "https://wiki.brixel.be/images/Brixel_Logo.png",
+                Logo = "https://www.brixel.be/wp-content/uploads/2015/09/Logo_small_transparant.png",
                 Url = "http://brixel.be",
                 Location = new Location
                 {
@@ -70,8 +70,6 @@ namespace BrixelAPI.SpaceState.Domain.SpaceStateAggregate
                 Contact = new Contact
                 {
                     Email = "info@brixel.be",
-                    Irc = "irc://irc.freenode.net/brixel",
-                    Ml = "brixel-public@discuss.brixel.be",
                     Twitter = "@hs_hasselt"
                 },
                 IssueReportChannels = new List<string> { "email" },
