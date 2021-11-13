@@ -31,8 +31,6 @@ namespace BrixelAPI.SpaceState.Features.GetFullStatus
             Contact = new ContactDTO()
             {
                 Email = spaceState.Contact.Email,
-                Irc = spaceState.Contact.Irc,
-                Ml = spaceState.Contact.Ml,
                 Twitter = spaceState.Contact.Twitter
             };
             IssueReportChannels = spaceState.IssueReportChannels;
