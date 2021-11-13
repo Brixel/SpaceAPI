@@ -25,8 +25,6 @@ The Space API provides information related to the current state of Hackerspace B
     "contact": {
         "twitter": "@hs_hasselt",
         "email": "info@brixel.be",
-        "irc": "irc://irc.freenode.net/brixel",
-        "ml": "brixel-public@discuss.brixel.be"
     },
     "issue_report_channels": [
         "email"
