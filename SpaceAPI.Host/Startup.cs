@@ -81,7 +81,7 @@ namespace SpaceAPI.Host
 
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc($"v1", new OpenApiInfo()
+                options.SwaggerDoc($"v{version}", new OpenApiInfo()
                 {
                     Version = version,
                     Title = "Brixel.SpaceAPI",
