@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BrixelAPI.SpaceState.Features.UpdateState
 {
+    [Authorize]
     [ApiController]
     [Route("api/status")]
     [Route("api/brixel/spaceapi/state")]

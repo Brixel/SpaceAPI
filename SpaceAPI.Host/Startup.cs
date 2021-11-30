@@ -1,8 +1,11 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 using BrixelAPI.SpaceState;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -10,6 +13,8 @@ using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 namespace SpaceAPI.Host
@@ -32,10 +37,46 @@ namespace SpaceAPI.Host
             //    options.UseSqlServer(Configuration.GetConnectionString("SpaceAPIConnection")));
             //services.AddScoped<IServerLessRequestService, ServerLessRequestService>();
             //services.Configure<ServerLessOptions>(Configuration.GetSection("ServerLessOptions"));
+
+            var configurationSection = Configuration.GetSection(nameof(AuthConfig));
+            var authConfiguration = configurationSection.Get<AuthConfig>();
+            services.Configure<AuthConfig>(configurationSection);
+
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddControllers(options =>
             {
                 options.RespectBrowserAcceptHeader = true;
+            });
+
+            IdentityModelEventSource.ShowPII = true;
+
+
+            services.AddAuthentication(authOptions =>
+            {
+                authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                authOptions.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                authOptions.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = authConfiguration.Authority;
+                options.Audience = authConfiguration.Audience;
+                //options.SaveToken = true;
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateAudience = false
+                };
+            });
+
+            services.AddAuthorization(auth =>
+            {
+                var defaultPolicy =
+                    new AuthorizationPolicyBuilder()
+                        .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+                        .RequireAuthenticatedUser()
+                        .Build();
+
+                auth.DefaultPolicy = defaultPolicy;
             });
 
             services.AddSwaggerGen(options =>
@@ -87,6 +128,7 @@ namespace SpaceAPI.Host
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -94,6 +136,13 @@ namespace SpaceAPI.Host
                 endpoints.MapControllers();
             });
         }
+    }
+
+    public class AuthConfig
+    {
+        public string Audience { get; set; }
+        public string Issuer { get; set; }
+        public string Authority { get; set; }
     }
 
     public class ServerLessOptions
