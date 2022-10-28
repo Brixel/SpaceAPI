@@ -76,6 +76,18 @@ namespace SpaceAPI.Host
                 auth.DefaultPolicy = defaultPolicy;
             });
 
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                                        .AllowAnyMethod()
+                                        .AllowAnyHeader()
+                                        .AllowCredentials();
+                    });
+            });
+
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc($"v{version}", new OpenApiInfo()
@@ -124,7 +136,9 @@ namespace SpaceAPI.Host
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            
+            app.UseCors();
+            
             app.UseAuthentication();
             app.UseAuthorization();
 
