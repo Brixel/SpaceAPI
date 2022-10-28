@@ -48,9 +48,6 @@ namespace SpaceAPI.Host
                 options.RespectBrowserAcceptHeader = true;
             });
 
-            IdentityModelEventSource.ShowPII = true;
-
-
             services.AddAuthentication(authOptions =>
             {
                 authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
