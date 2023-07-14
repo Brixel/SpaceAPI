@@ -33,11 +33,6 @@ namespace SpaceAPI.Host
         {
             var version = GetVersion();
 
-            //services.AddDbContext<LogContext>(options =>
-            //    options.UseSqlServer(Configuration.GetConnectionString("SpaceAPIConnection")));
-            //services.AddScoped<IServerLessRequestService, ServerLessRequestService>();
-            //services.Configure<ServerLessOptions>(Configuration.GetSection("ServerLessOptions"));
-
             var configurationSection = Configuration.GetSection(nameof(AuthConfig));
             var authConfiguration = configurationSection.Get<AuthConfig>();
             services.Configure<AuthConfig>(configurationSection);
@@ -101,9 +96,8 @@ namespace SpaceAPI.Host
                     d => (d.ActionDescriptor as ControllerActionDescriptor)?.ActionName);
             });
             services.AddMvcCore()
-                .AddApiExplorer()
-                .AddFluentValidation();
-
+                .AddApiExplorer();
+            services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
             ConfigureVerticals(services, Configuration);
         }
 
