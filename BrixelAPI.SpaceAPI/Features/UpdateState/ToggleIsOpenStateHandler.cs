@@ -27,7 +27,7 @@ namespace BrixelAPI.SpaceState.Features.UpdateState
                 throw new ArgumentNullException(nameof(request));
             }
 
-            var state = Domain.SpaceStateAggregate.SpaceApi.GetConfiguredSpaceAPI();
+            var state = SpaceApi.GetConfiguredSpaceAPI();
 
             state.ChangeState(request.IsOpen);
             

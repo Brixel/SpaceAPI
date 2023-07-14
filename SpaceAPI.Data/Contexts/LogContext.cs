@@ -1,5 +1,4 @@
 using System;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using SpaceAPI.Data.Interfaces;
 using SpaceAPI.Data.Models;
@@ -24,7 +23,7 @@ namespace SpaceAPI.Data.Contexts
             _httpContextAccessor = httpContextAccessor;
         }
         
-        public override int SaveChanges()
+        public override int SaveChanges(string currentUser = "anonymouse")
         {
             foreach (var auditableEntity in ChangeTracker.Entries<IAuditableEntity>())
             {
@@ -33,8 +32,7 @@ namespace SpaceAPI.Data.Contexts
                 {
                     // implementation may change based on the useage scenario, this
                     // sample is for forma authentication.
-                    string currentUser = _httpContextAccessor.HttpContext.User.Identity.Name != "" ?
-                        _httpContextAccessor.HttpContext.User.Identity.Name: "anonymouse";
+                    
 
                     // modify updated date and updated by column for 
                     // adds of updates.
