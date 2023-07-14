@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29418.71
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceAPI.Host", "SpaceAPI.Host\SpaceAPI.Host.csproj", "{B0A056BB-4625-44C4-B435-68D4997F4C36}"
 EndProject
@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceAPI.Data", "SpaceAPI.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceAPI.Test", "SpaceAPI.Test\SpaceAPI.Test.csproj", "{1C7589C3-68EE-4BD1-A99B-9159A9CAD5F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrixelAPI.SpaceState", "BrixelAPI.SpaceAPI\BrixelAPI.SpaceState.csproj", "{CE83D549-7301-4289-9450-0F945F9BC21D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrixelAPI.SpaceState", "BrixelAPI.SpaceAPI\BrixelAPI.SpaceState.csproj", "{CE83D549-7301-4289-9450-0F945F9BC21D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

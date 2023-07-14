@@ -12,14 +12,14 @@ namespace BrixelAPI.SpaceState.Infrastructure
         }
 
 
-        public async Task AddAsync(Domain.SpaceStateAggregate.SpaceState spaceState)
+        public async Task AddAsync(Domain.SpaceStateAggregate.SpaceApi spaceState)
         {
             await _fileSystem.SaveAsync("spacestate.json", spaceState);
         }
 
-        public async Task<Domain.SpaceStateAggregate.SpaceState> ReadAsync()
+        public async Task<Domain.SpaceStateAggregate.SpaceApi> ReadAsync()
         {
-            return await _fileSystem.ReadAsync<Domain.SpaceStateAggregate.SpaceState>("spacestate.json");
+            return await _fileSystem.ReadAsync<Domain.SpaceStateAggregate.SpaceApi>("spacestate.json");
         }
     }
 }

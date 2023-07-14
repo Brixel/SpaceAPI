@@ -11,7 +11,7 @@ namespace BrixelAPI.SpaceState
     {
         public static void Configure(IServiceCollection serviceCollection, IConfiguration configuration)
         {
-            serviceCollection.AddMediatR(typeof(Bootstrapper).Assembly);
+            serviceCollection.AddMediatR(x => x.RegisterServicesFromAssembly(typeof(Bootstrapper).Assembly));
 
             serviceCollection.AddScoped<ISpaceStateRepository, SpaceStateRepository>();
             serviceCollection.AddScoped<ISpaceStateChangedLogRepository, SpaceStateChangedLogRepository>();

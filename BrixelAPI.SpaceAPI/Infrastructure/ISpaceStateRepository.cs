@@ -4,8 +4,8 @@ namespace BrixelAPI.SpaceState.Infrastructure
 {
     interface ISpaceStateRepository
     {
-        Task AddAsync(Domain.SpaceStateAggregate.SpaceState spaceState);
+        Task AddAsync(Domain.SpaceStateAggregate.SpaceApi spaceState);
 
-        Task<Domain.SpaceStateAggregate.SpaceState> ReadAsync();
+        Task<Domain.SpaceStateAggregate.SpaceApi> ReadAsync();
     }
 }

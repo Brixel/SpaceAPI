@@ -1,8 +1,9 @@
 ﻿using System.Threading.Tasks;
 using BrixelAPI.SpaceState.Domain.SpaceStateChangedAggregate;
+using BrixelAPI.SpaceState.Features.UpdateState;
 using Microsoft.EntityFrameworkCore;
 
-namespace BrixelAPI.SpaceState.Features.UpdateState
+namespace BrixelAPI.SpaceState.Infrastructure
 {
     class SpaceStateUnitOfWork : ISpaceStateUnitOfWork
     {
