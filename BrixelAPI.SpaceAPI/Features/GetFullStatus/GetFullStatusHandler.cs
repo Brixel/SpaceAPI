@@ -11,18 +11,16 @@ namespace BrixelAPI.SpaceState.Features.GetFullStatus
     class GetFullStatusHandler : IRequestHandler<GetFullStatusRequest, GetFullStatusResponse>
     {
         private readonly ISpaceStateRepository _spaceStateRepository;
-        private readonly ISpaceStateChangedLogRepository _spaceStateChangedLogRepository;
 
-        public GetFullStatusHandler(ISpaceStateRepository spaceStateRepository, ISpaceStateChangedLogRepository spaceStateChangedLogRepository)
+        public GetFullStatusHandler(ISpaceStateRepository spaceStateRepository)
         {
             _spaceStateRepository = spaceStateRepository;
-            _spaceStateChangedLogRepository = spaceStateChangedLogRepository;
         }
         public async Task<GetFullStatusResponse> Handle(GetFullStatusRequest request, CancellationToken cancellationToken)
         {
 
             var state = SpaceApi.GetConfiguredSpaceAPI();
-            var lastState = await _spaceStateChangedLogRepository.GetLastLogAsync();
+            var lastState = await _spaceStateRepository.GetLastLogAsync();
 
             state.State.Open = lastState.IsOpen;
             state.State.Lastchange = (int)lastState.ChangedAtDateTime

@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
+using BrixelAPI.SpaceState.Domain.SpaceStateChangedAggregate;
 
-namespace BrixelAPI.SpaceState.Infrastructure
+namespace BrixelAPI.SpaceState.Infrastructure;
+
+interface ISpaceStateRepository
 {
-    interface ISpaceStateRepository
-    {
-        Task AddAsync(Domain.SpaceStateAggregate.SpaceApi spaceState);
+    Task AddAsync(SpaceStateChangedLog spaceStateChangedLog);
 
-        Task<Domain.SpaceStateAggregate.SpaceApi> ReadAsync();
-    }
+    Task<SpaceStateChangedLog> GetLastLogAsync();
 }

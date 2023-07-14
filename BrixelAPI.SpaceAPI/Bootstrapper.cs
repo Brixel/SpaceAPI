@@ -12,11 +12,9 @@ namespace BrixelAPI.SpaceState
         public static void Configure(IServiceCollection serviceCollection, IConfiguration configuration)
         {
             serviceCollection.AddMediatR(x => x.RegisterServicesFromAssembly(typeof(Bootstrapper).Assembly));
-
+            
             serviceCollection.AddScoped<ISpaceStateRepository, SpaceStateRepository>();
-            serviceCollection.AddScoped<ISpaceStateChangedLogRepository, SpaceStateChangedLogRepository>();
             serviceCollection.AddScoped<ISpaceStateUnitOfWork, SpaceStateUnitOfWork>();
-            serviceCollection.AddScoped<IFileSystem, FileSystem>();
 
             serviceCollection.AddDbContext<SpaceStateContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("SpaceAPIConnection")));

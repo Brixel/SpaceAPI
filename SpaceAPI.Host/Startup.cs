@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Reflection;
 using BrixelAPI.SpaceState;
 using FluentValidation.AspNetCore;
@@ -13,7 +10,6 @@ using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 

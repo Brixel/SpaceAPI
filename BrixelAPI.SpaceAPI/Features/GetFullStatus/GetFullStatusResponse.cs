@@ -7,7 +7,7 @@ namespace BrixelAPI.SpaceState.Features.GetFullStatus
 {
     public class GetFullStatusResponse : SpaceApi
     {
-        public GetFullStatusResponse(Domain.SpaceStateAggregate.SpaceApi spaceState)
+        public GetFullStatusResponse(Domain.SpaceStateAggregate.SpaceState spaceState)
         {
             ApiCompatibility = spaceState.ApiCompatibility;
             Space = spaceState.Space;
