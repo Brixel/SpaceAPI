@@ -36,9 +36,10 @@ public class SpaceState : SpaceApi
             Contact = new Contact
             {
                 Email = "info@brixel.be",
-                Irc = "irc://irc.freenode.net/brixel",
-                Ml = "brixel-public@discuss.brixel.be",
                 Twitter = "@hs_hasselt",
+                Facebook = "https://facebook.com/Brixel.Hasselt",
+                Mastodon = "@brixel@mastodon.social",
+                Foursquare = "https://foursquare.com/v/hackerspace-brixel/54284e28498e0b0d254fa426"
             },
             Projects = new List<string>()
             {
