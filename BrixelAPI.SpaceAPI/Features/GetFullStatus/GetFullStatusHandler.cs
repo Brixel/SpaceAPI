@@ -23,7 +23,7 @@ namespace BrixelAPI.SpaceState.Features.GetFullStatus
             var lastState = await _spaceStateRepository.GetLastLogAsync();
 
             state.State.Open = lastState.IsOpen;
-            state.State.Lastchange = (int)lastState.ChangedAtDateTime
+            state.State.Lastchange = lastState.ChangedAtDateTime
                 .ToUniversalTime()
                 .Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
             
