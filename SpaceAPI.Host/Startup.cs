@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Reflection;
 using BrixelAPI.SpaceState;
 using FluentValidation.AspNetCore;
@@ -13,7 +10,6 @@ using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
@@ -32,11 +28,6 @@ namespace SpaceAPI.Host
         public void ConfigureServices(IServiceCollection services)
         {
             var version = GetVersion();
-
-            //services.AddDbContext<LogContext>(options =>
-            //    options.UseSqlServer(Configuration.GetConnectionString("SpaceAPIConnection")));
-            //services.AddScoped<IServerLessRequestService, ServerLessRequestService>();
-            //services.Configure<ServerLessOptions>(Configuration.GetSection("ServerLessOptions"));
 
             var configurationSection = Configuration.GetSection(nameof(AuthConfig));
             var authConfiguration = configurationSection.Get<AuthConfig>();
@@ -101,9 +92,8 @@ namespace SpaceAPI.Host
                     d => (d.ActionDescriptor as ControllerActionDescriptor)?.ActionName);
             });
             services.AddMvcCore()
-                .AddApiExplorer()
-                .AddFluentValidation();
-
+                .AddApiExplorer();
+            services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
             ConfigureVerticals(services, Configuration);
         }
 

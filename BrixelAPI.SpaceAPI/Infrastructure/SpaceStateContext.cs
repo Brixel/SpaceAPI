@@ -1,7 +1,7 @@
 ﻿using BrixelAPI.SpaceState.Domain.SpaceStateChangedAggregate;
 using Microsoft.EntityFrameworkCore;
 
-namespace BrixelAPI.SpaceState
+namespace BrixelAPI.SpaceState.Infrastructure
 {
     public class SpaceStateContext : DbContext
     {

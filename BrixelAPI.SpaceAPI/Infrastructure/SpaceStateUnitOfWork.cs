@@ -2,7 +2,7 @@
 using BrixelAPI.SpaceState.Domain.SpaceStateChangedAggregate;
 using Microsoft.EntityFrameworkCore;
 
-namespace BrixelAPI.SpaceState.Features.UpdateState
+namespace BrixelAPI.SpaceState.Infrastructure
 {
     class SpaceStateUnitOfWork : ISpaceStateUnitOfWork
     {
