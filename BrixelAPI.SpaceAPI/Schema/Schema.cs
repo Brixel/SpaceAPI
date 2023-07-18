@@ -111,7 +111,7 @@ public partial class SpaceApi
 /// <summary>
 /// Contact information about your space
 /// </summary>
-public partial class Contact
+public class Contact
 {
     /// <summary>
     /// E-mail address for contacting your space. If this is a mailing list consider to use the
