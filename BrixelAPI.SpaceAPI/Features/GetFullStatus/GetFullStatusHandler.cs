@@ -19,7 +19,7 @@ namespace BrixelAPI.SpaceState.Features.GetFullStatus
         public async Task<GetFullStatusResponse> Handle(GetFullStatusRequest request, CancellationToken cancellationToken)
         {
 
-            var state = SpaceApi.GetConfiguredSpaceAPI();
+            var state = Domain.SpaceStateAggregate.SpaceState.GetConfiguredSpaceAPI();
             var lastState = await _spaceStateRepository.GetLastLogAsync();
 
             state.State.Open = lastState.IsOpen;
