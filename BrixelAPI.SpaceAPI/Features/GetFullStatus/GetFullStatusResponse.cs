@@ -27,11 +27,15 @@ namespace BrixelAPI.SpaceState.Features.GetFullStatus
             Contact = new Contact()
             {
                 Email = spaceState.Contact.Email,
-                Twitter = spaceState.Contact.Twitter
+                Twitter = spaceState.Contact.Twitter,
+                Foursquare = spaceState.Contact.Foursquare,
+                Facebook = spaceState.Contact.Facebook,
+                Mastodon = spaceState.Contact.Mastodon
             };
             State = new State()
             {
-                Open = spaceState.State.Open
+                Open = spaceState.State.Open,
+                Lastchange = spaceState.State.Lastchange
             };
             Projects = spaceState.Projects.ToArray();
 
