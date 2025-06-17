@@ -92,7 +92,6 @@ namespace SpaceAPI.Host
             });
             services.AddMvcCore()
                 .AddApiExplorer();
-            //services.AddValidatorsFromAssemblyContaining <
             ConfigureVerticals(services, Configuration);
         }
 
