@@ -1,6 +1,5 @@
 using System.Reflection;
 using BrixelAPI.SpaceState;
-using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -93,7 +92,7 @@ namespace SpaceAPI.Host
             });
             services.AddMvcCore()
                 .AddApiExplorer();
-            services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
+            //services.AddValidatorsFromAssemblyContaining <
             ConfigureVerticals(services, Configuration);
         }
 
