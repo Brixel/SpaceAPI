@@ -2,11 +2,7 @@
 
 # SpaceAPI
 
-[![Build Status](https://dev.azure.com/Brixel/Brixel.SpaceAPI/_apis/build/status/Brixel.SpaceAPI?branchName=refs%2Fpull%2F36%2Fmerge)](https://dev.azure.com/Brixel/Brixel.SpaceAPI/_build/latest?definitionId=1&branchName=refs%2Fpull%2F36%2Fmerge)
-
-[![Deployment status](https://vsrm.dev.azure.com/Brixel/_apis/public/Release/badge/2c5ed952-6945-473d-a743-5856cc65e56e/1/1)](https://status.brixel.space/api/brixel/spaceapi)
-
-[![Build Status](https://travis-ci.org/Brixel/SpaceAPI.svg?branch=develop)](https://travis-ci.org/Brixel/SpaceAPI)
+[![API Build and Push](https://github.com/Brixel/SpaceAPI/actions/workflows/docker-image.yml/badge.svg?branch=master)](https://github.com/Brixel/SpaceAPI/actions/workflows/docker-image.yml)
 
 The Space API provides information related to the current state of Hackerspace Brixel. Next to useful information regarding location, ways of getting on touch with us it also provides the 'Open' state telling you if the space is open.
 
