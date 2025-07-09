@@ -22,10 +22,13 @@ namespace BrixelAPI.SpaceState.Features.GetFullStatus
             var state = Domain.SpaceStateAggregate.SpaceState.GetConfiguredSpaceAPI();
             var lastState = await _spaceStateRepository.GetLastLogAsync();
 
-            state.State.Open = lastState.IsOpen;
-            state.State.Lastchange = lastState.ChangedAtDateTime
-                .ToUniversalTime()
-                .Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+            if (lastState != null) {
+
+                state.State.Open = lastState.IsOpen;
+                state.State.Lastchange = lastState.ChangedAtDateTime
+                    .ToUniversalTime()
+                    .Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+            }
             
             var response = new GetFullStatusResponse(state);
             return response;
