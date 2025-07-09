@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Schema;
+using Schema.v14;
 
 
 namespace BrixelAPI.SpaceState.Domain.SpaceStateAggregate;
@@ -18,7 +20,6 @@ public class SpaceState : SpaceApi
     {
         return new SpaceState()
         {
-            ApiCompatibility = ["0.14"],
             Space = "Brixel",
             Logo = "https://www.brixel.be/wp-content/uploads/2015/09/Logo_small_transparant.png",
             Url = "http://brixel.be",
