@@ -1,10 +1,9 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using BrixelAPI.SpaceState.Domain.SpaceStateAggregate;
-using BrixelAPI.SpaceState.Domain.SpaceStateChangedAggregate;
+﻿using BrixelAPI.SpaceState.Domain.SpaceStateChangedAggregate;
 using BrixelAPI.SpaceState.Infrastructure;
 using MediatR;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace BrixelAPI.SpaceState.Features.UpdateState
 {
@@ -28,7 +27,7 @@ namespace BrixelAPI.SpaceState.Features.UpdateState
             var state = Domain.SpaceStateAggregate.SpaceState.GetConfiguredSpaceAPI();
 
             state.ChangeState(request.IsOpen);
-            
+
             await _spaceStateRepository.AddAsync(SpaceStateChangedLog.Create(request.IsOpen, "User"));
 
             await _unitOfWork.CommitAsync();

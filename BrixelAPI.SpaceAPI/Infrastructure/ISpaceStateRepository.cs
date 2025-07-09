@@ -1,5 +1,5 @@
-using System.Threading.Tasks;
 using BrixelAPI.SpaceState.Domain.SpaceStateChangedAggregate;
+using System.Threading.Tasks;
 
 namespace BrixelAPI.SpaceState.Infrastructure;
 

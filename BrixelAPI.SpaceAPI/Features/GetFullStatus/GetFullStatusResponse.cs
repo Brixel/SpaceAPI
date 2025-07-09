@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json.Serialization;
-using BrixelAPI.SpaceState.Schema;
+﻿using System.Linq;
 
 namespace BrixelAPI.SpaceState.Features.GetFullStatus
 {
@@ -42,5 +39,5 @@ namespace BrixelAPI.SpaceState.Features.GetFullStatus
         }
     }
 
-    
+
 }

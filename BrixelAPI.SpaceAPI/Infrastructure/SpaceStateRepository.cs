@@ -1,7 +1,7 @@
-using System.Linq;
-using System.Threading.Tasks;
 using BrixelAPI.SpaceState.Domain.SpaceStateChangedAggregate;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace BrixelAPI.SpaceState.Infrastructure;
 
@@ -20,7 +20,7 @@ class SpaceStateRepository : ISpaceStateRepository
 
     public Task<SpaceStateChangedLog> GetLastLogAsync()
     {
-        return 
+        return
             _context.SpaceStateChangedLog
                 .OrderByDescending(x => x.ChangedAtDateTime)
                 .FirstOrDefaultAsync();

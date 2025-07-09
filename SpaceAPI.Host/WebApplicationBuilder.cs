@@ -1,4 +1,3 @@
-using System.Reflection;
 using BrixelAPI.SpaceState;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -11,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace SpaceAPI.Host
 {
@@ -33,6 +33,7 @@ namespace SpaceAPI.Host
             }).AddJsonOptions(o =>
             {
                 o.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
+
             });
 
 
@@ -138,9 +139,9 @@ namespace SpaceAPI.Host
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            
+
             app.UseCors();
-            
+
             app.UseAuthentication();
             app.UseAuthorization();
 
