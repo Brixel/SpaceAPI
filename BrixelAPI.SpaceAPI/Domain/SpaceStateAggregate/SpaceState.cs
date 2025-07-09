@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Schema;
+using Schema.v14;
 
 
 namespace BrixelAPI.SpaceState.Domain.SpaceStateAggregate;
