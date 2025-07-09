@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace BrixelAPI.SpaceState
 {
-    public class Bootstrapper
+    public static class Bootstrapper
     {
         public static void Configure(IServiceCollection serviceCollection, IConfiguration configuration)
         {

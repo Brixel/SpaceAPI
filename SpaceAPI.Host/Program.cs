@@ -1,20 +1,11 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Builder;
+var builder = WebApplication.CreateBuilder(args);
 
-namespace SpaceAPI.Host
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
+SpaceAPI.Host.WebApplicationBuilder.ConfigureServices(builder.Services, builder.Configuration);
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
-    }
-}
+var app = builder.Build();
+
+SpaceAPI.Host.WebApplicationBuilder.Configure(app, app.Environment);
+
+
+app.Run();
