@@ -10,7 +10,7 @@ namespace BrixelAPI.SpaceState.Domain.SpaceStateChangedAggregate
         public DateTime ChangedAtDateTime { get; set; }
         private SpaceStateChangedLog()
         {
-            
+
         }
 
         public static SpaceStateChangedLog Create(bool isOpen, string user)

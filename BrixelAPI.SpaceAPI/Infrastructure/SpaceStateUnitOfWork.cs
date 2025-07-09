@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
-using BrixelAPI.SpaceState.Domain.SpaceStateChangedAggregate;
+﻿using BrixelAPI.SpaceState.Domain.SpaceStateChangedAggregate;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace BrixelAPI.SpaceState.Infrastructure
 {

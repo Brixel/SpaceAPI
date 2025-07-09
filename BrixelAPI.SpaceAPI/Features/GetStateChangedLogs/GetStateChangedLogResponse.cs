@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BrixelAPI.SpaceState.Features.GetStateChangedLogs
 {
-    public class GetStateChangedLogResponse 
+    public class GetStateChangedLogResponse
     {
         public List<GetStateChangeLogDTO> Logs { get; }
 

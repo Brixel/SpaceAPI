@@ -1,10 +1,10 @@
-﻿using System.ComponentModel;
+﻿using BrixelAPI.SpaceState.Infrastructure;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using BrixelAPI.SpaceState.Infrastructure;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace BrixelAPI.SpaceState.Features.GetStateChangedLogs
 {

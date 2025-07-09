@@ -1,10 +1,8 @@
-﻿using System;
-using System.IO;
+﻿using BrixelAPI.SpaceState.Infrastructure;
+using MediatR;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using BrixelAPI.SpaceState.Domain.SpaceStateAggregate;
-using BrixelAPI.SpaceState.Infrastructure;
-using MediatR;
 
 namespace BrixelAPI.SpaceState.Features.GetFullStatus
 {
@@ -22,14 +20,15 @@ namespace BrixelAPI.SpaceState.Features.GetFullStatus
             var state = Domain.SpaceStateAggregate.SpaceState.GetConfiguredSpaceAPI();
             var lastState = await _spaceStateRepository.GetLastLogAsync();
 
-            if (lastState != null) {
+            if (lastState != null)
+            {
 
                 state.State.Open = lastState.IsOpen;
                 state.State.Lastchange = lastState.ChangedAtDateTime
                     .ToUniversalTime()
                     .Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
             }
-            
+
             var response = new GetFullStatusResponse(state);
             return response;
         }

@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace BrixelAPI.SpaceState.Features.GetStateChangedLogs
 {
