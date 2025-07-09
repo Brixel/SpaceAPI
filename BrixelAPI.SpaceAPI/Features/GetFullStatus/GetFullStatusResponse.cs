@@ -7,7 +7,6 @@ namespace BrixelAPI.SpaceState.Features.GetFullStatus
     {
         public GetFullStatusResponse(Domain.SpaceStateAggregate.SpaceState spaceState)
         {
-            ApiCompatibility = spaceState.ApiCompatibility;
             Space = spaceState.Space;
             Logo = spaceState.Logo;
             Url = spaceState.Url;
